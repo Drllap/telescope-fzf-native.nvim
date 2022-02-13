@@ -5,7 +5,7 @@ ifeq ($(OS),Windows_NT)
     MKD = -mkdir
     RM = cmd /C rmdir /Q /S
     CC = gcc
-    TARGET := libfzf.dll
+    TARGET := fzf.dll
 else
     MKD = mkdir -p
     RM = rm -rf
