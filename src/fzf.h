@@ -72,7 +72,7 @@ typedef struct {
 #ifdef _WIN32
     #define EXPORTED __declspec( dllexport )
 #else
-    #defina EXPORTED
+    #define EXPORTED
 #endif
 
 EXPORTED
