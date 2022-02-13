@@ -45,6 +45,15 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 ```
 
+### Cmake
+
+For cross platform experience cmake can be used to build the fzf library as so:
+```
+cmake -S . -B build
+cmake --build build --config Release
+cmake --install build
+```
+
 ## Telescope Setup and Configuration:
 
 ```lua
