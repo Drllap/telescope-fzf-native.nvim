@@ -69,38 +69,58 @@ typedef struct {
   bool only_inv;
 } fzf_pattern_t;
 
+#ifdef _WIN32
+    #define EXPORTED __declspec( dllexport )
+#else
+    #defina EXPORTED
+#endif
+
+EXPORTED
 fzf_result_t fzf_fuzzy_match_v1(bool case_sensitive, bool normalize,
                                 const char *text, const char *pattern,
                                 bool with_pos, fzf_slab_t *slab);
+EXPORTED
 fzf_result_t fzf_fuzzy_match_v2(bool case_sensitive, bool normalize,
                                 const char *text, const char *pattern,
                                 bool with_pos, fzf_slab_t *slab);
+EXPORTED
 fzf_result_t fzf_exact_match_naive(bool case_sensitive, bool normalize,
                                    const char *text, const char *pattern,
                                    bool with_pos, fzf_slab_t *slab);
+EXPORTED
 fzf_result_t fzf_prefix_match(bool case_sensitive, bool normalize,
                               const char *text, const char *pattern,
                               bool with_pos, fzf_slab_t *slab);
+EXPORTED
 fzf_result_t fzf_suffix_match(bool case_sensitive, bool normalize,
                               const char *text, const char *pattern,
                               bool with_pos, fzf_slab_t *slab);
+EXPORTED
 fzf_result_t fzf_equal_match(bool case_sensitive, bool normalize,
                              const char *text, const char *pattern,
                              bool with_pos, fzf_slab_t *slab);
 
 /* interface */
+EXPORTED
 fzf_pattern_t *fzf_parse_pattern(fzf_case_types case_mode, bool normalize,
                                  char *pattern, bool fuzzy);
+EXPORTED
 void fzf_free_pattern(fzf_pattern_t *pattern);
 
+EXPORTED
 int32_t fzf_get_score(const char *text, fzf_pattern_t *pattern,
                       fzf_slab_t *slab);
+EXPORTED
 fzf_position_t *fzf_get_positions(const char *text, fzf_pattern_t *pattern,
                                   fzf_slab_t *slab);
+EXPORTED
 void fzf_free_positions(fzf_position_t *pos);
 
+EXPORTED
 fzf_slab_t *fzf_make_slab(size_t size_16, size_t size_32);
+EXPORTED
 fzf_slab_t *fzf_make_default_slab(void);
+EXPORTED
 void fzf_free_slab(fzf_slab_t *slab);
 
 #endif // _fzf_H_
